@@ -51,24 +51,34 @@ const rows = [
 function ViewClaim() {
   const [claim, setClaim] = useState([]);
 
-  const fetchClaimData = () => {
-    return fetch("https://claimdata.com/insuranceid")
-      .then((response) => response.json())
-      .then((data) => setClaim(data));
+  const fetchClaimData = async () => {
+    const response = await fetch("/claims", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ EmployeeID: 58001002 }),
+    });
+
+    const json = await response.json();
+
+    if (!response.ok) {
+      localStorage.setItem("claim", JSON.stringify(json));
+    } else {
+      console.log(json);
+    }
   };
 
-  useEffect(()=> {
-    fetchClaimData();
-  },[])
+  useEffect(async () => {
+    await fetchClaimData();
+  }, []);
 
   const deleteClaimData = (ClaimID) => {
-    alert('Delete this claim?');
+    alert("Delete this claim?");
     setClaim([
       ...claim.filter((claim) => {
         return claim.id !== ClaimID;
       }),
     ]);
-  }
+  };
 
   return (
     <div>
@@ -94,9 +104,11 @@ function ViewClaim() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {claim && claim.length > 0 && claim.map((claimObj, index) => (
-                <TableCell align="right">{claim.ClaimID}</TableCell>
-              ))}
+              {claim &&
+                claim.length > 0 &&
+                claim.map((claimObj, index) => (
+                  <TableCell align="right">{claim.ClaimID}</TableCell>
+                ))}
               {rows.map((row) => (
                 <TableRow
                   key={row.name}
@@ -112,7 +124,11 @@ function ViewClaim() {
                   <TableCell align="right">{row.Purpose}</TableCell>
                   <TableCell align="right">{row.Status}</TableCell>
                   <TableCell align="right">
-                    <Button variant="outlined" startIcon={<DeleteIcon />} onClick={() => deleteClaimData(row.ClaimID)}>
+                    <Button
+                      variant="outlined"
+                      startIcon={<DeleteIcon />}
+                      onClick={() => deleteClaimData(row.ClaimID)}
+                    >
                       Delete
                     </Button>
                   </TableCell>
