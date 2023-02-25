@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "./globalStates/userState";
 import { Routes, Route } from "react-router-dom";
+import { Authenticator } from "@aws-amplify/ui-react";
+import '@aws-amplify/ui-react/styles.css';
 
 import Dashboard from "./components/Dashboard";
 import ViewClaim from "./components/ViewClaim";
@@ -23,7 +25,10 @@ const App = () => {
   //to use the reducer functions, call dispatch(reducerfunction(userObject))
   //EXAMPLE USE:
   return (
+    <Authenticator>
+      {({signOut}) => (
     <div>
+      <button onClick={signOut}>Sign Out</button>
       <Routes>
         <Route
           path="/"
@@ -43,6 +48,8 @@ const App = () => {
         />
       </Routes>
     </div>
+    )}
+    </Authenticator>
   );
 };
 
