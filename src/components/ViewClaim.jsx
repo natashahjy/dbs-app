@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
-function createData(
+function claimData(
   ClaimID,
   InsuranceID,
   InsuranceType,
@@ -18,6 +18,7 @@ function createData(
   LastName,
   Date,
   Amount,
+  Purpose,
   Status
 ) {
   return {
@@ -28,12 +29,13 @@ function createData(
     LastName,
     Date,
     Amount,
+    Purpose,
     Status,
   };
 }
 
 const rows = [
-  createData(
+  claimData(
     "2023",
     "1016",
     "Travel",
@@ -47,6 +49,18 @@ const rows = [
 ];
 
 function ViewClaim() {
+  const [claim, setClaim] = useState([]);
+
+  const fetchClaimData = () => {
+    return fetch("https://claimdata.com/insuranceid")
+      .then((response) => response.json())
+      .then((data) => setClaim(data));
+  };
+
+  useEffect(()=> {
+    fetchClaimData();
+  },[])
+
   return (
     <div>
       <div>
@@ -64,12 +78,16 @@ function ViewClaim() {
                 <TableCell>LastName</TableCell>
                 <TableCell>Date</TableCell>
                 <TableCell>Amount</TableCell>
+                <TableCell>Purpose</TableCell>
                 <TableCell>Status</TableCell>
                 <TableCell>-</TableCell>
                 <TableCell>-</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
+              {claim && claim.length > 0 && claim.map((claimObj, index) => (
+                <TableCell align="right">{claim.ClaimID}</TableCell>
+              ))}
               {rows.map((row) => (
                 <TableRow
                   key={row.name}
@@ -82,6 +100,7 @@ function ViewClaim() {
                   <TableCell align="right">{row.LastName}</TableCell>
                   <TableCell align="right">{row.Date}</TableCell>
                   <TableCell align="right">{row.Amount}</TableCell>
+                  <TableCell align="right">{row.Purpose}</TableCell>
                   <TableCell align="right">{row.Status}</TableCell>
                   <TableCell align="right">
                     <Button variant="outlined" startIcon={<DeleteIcon />}>
