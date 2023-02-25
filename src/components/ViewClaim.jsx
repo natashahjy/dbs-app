@@ -10,6 +10,8 @@ import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
+import { Auth } from 'aws-amplify';
+
 function claimData(
   ClaimID,
   InsuranceID,
@@ -50,6 +52,8 @@ const rows = [
 
 function ViewClaim() {
   const [claim, setClaim] = useState([]);
+  const { attributes } = Auth.currentAuthenticatedUser();
+  console.log(attributes)
 
   const fetchClaimData = () => {
     return fetch("https://claimdata.com/insuranceid")
@@ -62,6 +66,7 @@ function ViewClaim() {
   },[])
 
   return (
+    
     <div>
       <div>
         <h3>View Claim</h3>
