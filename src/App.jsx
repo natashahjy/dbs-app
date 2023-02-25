@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { login, logout } from "./globalStates/count";
+import { login, logout } from "./globalStates/userState";
 
 const App = () => {
     const { userState } = useSelector((state) => state.userState.user);
