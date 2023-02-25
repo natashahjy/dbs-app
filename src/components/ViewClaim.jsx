@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -49,6 +49,18 @@ const rows = [
 ];
 
 function ViewClaim() {
+  const [claim, setClaim] = useState([]);
+
+  const fetchClaimData = () => {
+    return fetch("https://claimdata.com/insuranceid")
+      .then((response) => response.json())
+      .then((data) => setClaim(data));
+  };
+
+  useEffect(()=> {
+    fetchClaimData();
+  },[])
+
   return (
     <div>
       <div>
@@ -73,6 +85,9 @@ function ViewClaim() {
               </TableRow>
             </TableHead>
             <TableBody>
+              {claim && claim.length > 0 && claim.map((claimObj, index) => (
+                <TableCell align="right">{claim.ClaimID}</TableCell>
+              ))}
               {rows.map((row) => (
                 <TableRow
                   key={row.name}
