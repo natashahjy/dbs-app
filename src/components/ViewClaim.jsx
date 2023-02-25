@@ -10,6 +10,8 @@ import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
+import { Auth } from 'aws-amplify';
+
 function claimData(
   ClaimID,
   InsuranceID,
@@ -50,9 +52,11 @@ const rows = [
 
 function ViewClaim() {
   const [claim, setClaim] = useState([]);
+  const { attributes } = Auth.currentAuthenticatedUser();
+  console.log(attributes)
 
   const fetchClaimData = async () => {
-    const response = await fetch("/claims", {
+    const response = await fetch("http://localhost/view:3001", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ EmployeeID: 58001002 }),
@@ -67,8 +71,8 @@ function ViewClaim() {
     }
   };
 
-  useEffect(async () => {
-    await fetchClaimData();
+  useEffect(() => {
+    fetchClaimData();
   }, []);
 
   const deleteClaimData = (ClaimID) => {
@@ -81,6 +85,7 @@ function ViewClaim() {
   };
 
   return (
+    
     <div>
       <div>
         <h3>View Claim</h3>
