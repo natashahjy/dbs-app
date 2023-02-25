@@ -1,5 +1,51 @@
 import React from "react";
 
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Button from "@mui/material/Button";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+
+function createData(
+  ClaimID,
+  InsuranceID,
+  InsuranceType,
+  FirstName,
+  LastName,
+  Date,
+  Amount,
+  Status
+) {
+  return {
+    ClaimID,
+    InsuranceID,
+    InsuranceType,
+    FirstName,
+    LastName,
+    Date,
+    Amount,
+    Status,
+  };
+}
+
+const rows = [
+  createData(
+    "2023",
+    "1016",
+    "Travel",
+    "Irene",
+    "Lim",
+    "2023-02-11",
+    100.0,
+    "Overseas Injury",
+    "Approved"
+  ),
+];
+
 function ViewClaim() {
   return (
     <div>
@@ -7,33 +53,57 @@ function ViewClaim() {
         <h3>View Claim</h3>
       </div>
       <div>
-        <table>
-          <tr>
-            <th>ClaimID</th>
-            <th>InsuranceID</th>
-            <th>InsuranceType</th>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>Date</th>
-            <th>Amount</th>
-            <th>Purpose</th>
-            <th>Status</th>
-          </tr>
-          <tr>
-            <td>2023</td>
-            <td>1016</td>
-            <td>Travel</td>
-            <td>Irene</td>
-            <td>Lim</td>
-            <td>2023-02-11</td>
-            <td>100.00</td>
-            <td>Overseas Injury</td>
-            <td>Approved</td>
-          </tr>
-        </table>
+        <TableContainer>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>ClaimID</TableCell>
+                <TableCell>InsuranceID</TableCell>
+                <TableCell>InsuranceType</TableCell>
+                <TableCell>FirstName</TableCell>
+                <TableCell>LastName</TableCell>
+                <TableCell>Date</TableCell>
+                <TableCell>Amount</TableCell>
+                <TableCell>Status</TableCell>
+                <TableCell>-</TableCell>
+                <TableCell>-</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow
+                  key={row.name}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.name}
+                  </TableCell>
+                  <TableCell align="right">{row.ClaimID}</TableCell>
+                  <TableCell align="right">{row.InsuranceID}</TableCell>
+                  <TableCell align="right">{row.InsuranceType}</TableCell>
+                  <TableCell align="right">{row.FirstName}</TableCell>
+                  <TableCell align="right">{row.LastName}</TableCell>
+                  <TableCell align="right">{row.Date}</TableCell>
+                  <TableCell align="right">{row.Amount}</TableCell>
+                  <TableCell align="right">{row.Status}</TableCell>
+                  <TableCell align="right">
+                    <Button variant="outlined" startIcon={<DeleteIcon />}>
+                      Delete
+                    </Button>
+                  </TableCell>
+                  <TableCell align="right">
+                    <Button variant="outlined" startIcon={<EditIcon />}>
+                      Edit
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
     </div>
   );
-};
+}
 
 export default ViewClaim;
