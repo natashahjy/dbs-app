@@ -61,6 +61,15 @@ function ViewClaim() {
     fetchClaimData();
   },[])
 
+  const deleteClaimData = (ClaimID) => {
+    alert('Delete this claim?');
+    setClaim([
+      ...claim.filter((claim) => {
+        return claim.id !== ClaimID;
+      }),
+    ]);
+  }
+
   return (
     <div>
       <div>
@@ -103,7 +112,7 @@ function ViewClaim() {
                   <TableCell align="right">{row.Purpose}</TableCell>
                   <TableCell align="right">{row.Status}</TableCell>
                   <TableCell align="right">
-                    <Button variant="outlined" startIcon={<DeleteIcon />}>
+                    <Button variant="outlined" startIcon={<DeleteIcon />} onClick={() => deleteClaimData(row.ClaimID)}>
                       Delete
                     </Button>
                   </TableCell>
