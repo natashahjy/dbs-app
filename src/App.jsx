@@ -6,6 +6,11 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import ViewClaim from "./components/ViewClaim";
 
+import SideBarNav from "./components/SideBar.tsx";
+
+
+import CreateClaimForm from "./eman/CreateClaimForm"
+
 //Styles
 
 import "./styles/ViewClaim.css";
@@ -22,8 +27,9 @@ const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Dashboard />}/>
-        <Route path="viewclaim" element={<ViewClaim />} />
+        <Route path="/" element={<SideBarNav page={<Dashboard/>}></SideBarNav>}/>
+        <Route path="viewclaim" element={<SideBarNav page={<ViewClaim/>}></SideBarNav>} />
+        <Route path="CreateClaimForm" element={<SideBarNav page={<CreateClaimForm/>}></SideBarNav>} />
       </Routes>
     </div>
   );

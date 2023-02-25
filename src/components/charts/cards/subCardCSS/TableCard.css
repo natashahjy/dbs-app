@@ -1,0 +1,84 @@
+.table .card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+    margin:0;
+    height: 100%;
+}
+
+.dashboard-table {
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    width: 100%;
+    box-shadow: 0px 1px 2px rgb(0 0 0 / 25%);
+    border-radius: 0.8em;
+    overflow: hidden;
+}
+
+.dashboard-table table {
+    position: relative;
+    width: 100%;
+    transform: scale(1.01);
+}
+
+.dashboard-table .metrics, .metrics-column {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.dashboard-table .metrics-column {
+    padding-left: 20px;
+    font-weight: 700;
+    color: #6956ba;
+    text-transform: uppercase;
+}
+
+.dashboard-table .header-top {
+    background-color: #dde0ff;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    width: 100%;
+    color: black;
+    font-size: 16px;
+}
+
+.dashboard-table .header-bot {
+    background-color: #dde0ff;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    width: 100%;
+    color: black;
+    font-size: 14px;
+}
+
+.dashboard-table .header-top th {
+    padding-bottom: 10px;
+}
+
+.dashboard-table .table-body-rows {
+    background-color: white;
+}
+
+.dashboard-table .table-body-rows:hover {
+    background-color: #dde0ff60;
+}
+
+.dashboard-table th {
+    box-sizing: border-box;
+    padding: 6px;
+    max-width: 70px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.dashboard-table td {
+    padding: 4px 8px;
+    max-width: 70px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

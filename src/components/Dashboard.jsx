@@ -3,8 +3,20 @@ import { Authenticator } from "@aws-amplify/ui-react";
 import '@aws-amplify/ui-react/styles.css';
 
 import { Link } from "react-router-dom";
-
+import BarCard from "./charts/cards/subCard/BarCard";
 const Dashboard = () => {
+  const inputBar = {
+    title: 'Bar card example',
+    type: 'bar',
+    xdata: ['team ABC', 'team B', 'team C', 'team D'],
+    ydata: [55, 23, 96, 30],
+    xlabel: 'team',
+    ylabel: 'score',
+    captions: [],
+    captionValues: []
+  }
+  const colorBar = ['#a98bfd','#a98bfd','#a98bfd','#a98bfd','#a98bfd'];
+
   return (
     <Authenticator>
       {({ signOut }) => (
@@ -12,14 +24,15 @@ const Dashboard = () => {
           <meta charSet="UTF-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <title>Document</title>
+          <title>Home</title>
           <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
             rel="stylesheet"
             integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
             crossOrigin="anonymous"
           />
-          <div
+          <BarCard inputObject={inputBar} colorData={colorBar}></BarCard>
+      <div
             className="container"
             style={{ marginTop: "10rem", marginLeft: "300px" }}
           >
@@ -43,13 +56,13 @@ const Dashboard = () => {
               <div className="col-3 border border-dark ms-5 rounded">
                 <div className="row">
                   <h3 className="text-center">Create Claim</h3>
-                  <a href="#">
-                    <img
+                  <Link to="createclaim">
+                  <img
                       style={{ width: "200px" }}
                       className="image-fluid rounded-pill"
                       src="https://img.freepik.com/premium-vector/tax-payment-paper-mail-folder-cartoon-illustration-flat-vector-isolated-object_374761-118.jpg?w=2000"
                     />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

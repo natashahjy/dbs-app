@@ -1,0 +1,55 @@
+.pie .card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px;
+    margin:0;
+    height: 100%;
+}
+
+.pie .piechart {
+    width: 200px !important;
+    margin-right: 10px;
+}
+
+.pie .captions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    gap: 16px;
+}
+
+.pie .caption {
+    display: grid;
+    grid-template-columns: 20px 150px;
+    grid-template-rows: 20px 30px;
+    justify-content: left;
+}
+
+.pie .icon {
+    grid-area: 1/1/2/2;
+    transform: translate(0, 2px);
+}
+
+.pie .description {
+    grid-area: 1/2/2/3;
+    color: #6b6b6b;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.pie .caption-bottom {
+    grid-area: 2/2/3/3;
+    padding-left: 10px;
+    font-weight: 700;
+    color: black;
+    font-size: 20px;
+    text-align: left;
+}
