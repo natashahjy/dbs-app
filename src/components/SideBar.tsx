@@ -15,7 +15,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Dashboard from './Dashboard';
 import ViewClaim from './ViewClaim';
-
+import CreateClaimForm from '../eman/CreateClaimForm'
 const drawerWidth = 240;
 //Pass in the page as props;
 export default function SideBarNav({page}) {
@@ -26,7 +26,7 @@ export default function SideBarNav({page}) {
     console.log(nav)
     if(nav =="Home"){return "/"}
     if(nav =="View Claim"){return "/viewclaim"}
-    if(nav =="Create Claim"){return "/"}
+    if(nav =="Create Claim"){return "/CreateClaimForm"}
     if(nav =="Edit Claim"){return "/"}
     else return "/"
   }
