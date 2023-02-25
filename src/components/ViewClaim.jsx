@@ -56,18 +56,18 @@ function ViewClaim() {
   console.log(attributes)
 
   const fetchClaimData = async () => {
-    const response = await fetch("http://localhost/view:3001", {
+    const response = await fetch("http://localhost:3001/view", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ EmployeeID: 58001002 }),
     });
 
-    const json = await response.json();
+    const jsonRow = await response.json();
 
     if (!response.ok) {
-      localStorage.setItem("claim", JSON.stringify(json));
+      localStorage.setItem("claim", JSON.stringify(jsonRow));
     } else {
-      console.log(json);
+      console.log(jsonRow);
     }
   };
 
