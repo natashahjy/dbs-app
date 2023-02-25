@@ -56,7 +56,7 @@ function ViewClaim() {
   console.log(attributes)
 
   const fetchClaimData = async () => {
-    const response = await fetch("/claims", {
+    const response = await fetch("http://localhost/view:3001", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ EmployeeID: 58001002 }),
@@ -71,8 +71,8 @@ function ViewClaim() {
     }
   };
 
-  useEffect(async () => {
-    await fetchClaimData();
+  useEffect(() => {
+    fetchClaimData();
   }, []);
 
   const deleteClaimData = (ClaimID) => {
