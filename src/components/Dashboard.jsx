@@ -27,7 +27,6 @@ const Dashboard = () => {
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
         crossOrigin="anonymous"
       />
-      <BarCard inputObject={inputBar} colorData={colorBar}></BarCard>
       <div
         className="container"
         style={{ marginTop: "10rem", marginLeft: "300px" }}

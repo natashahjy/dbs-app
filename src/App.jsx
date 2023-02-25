@@ -9,7 +9,7 @@ import ViewClaim from "./components/ViewClaim";
 import SideBarNav from "./components/SideBar.tsx";
 
 
-import CreateClaimForm from "./eman/CreateClaimForm"
+import CreateClaimForm from "./components/CreateClaimForm"
 
 //Styles
 
