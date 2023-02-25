@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
-function createData(
+function claimData(
   ClaimID,
   InsuranceID,
   InsuranceType,
@@ -18,6 +18,7 @@ function createData(
   LastName,
   Date,
   Amount,
+  Purpose,
   Status
 ) {
   return {
@@ -28,12 +29,13 @@ function createData(
     LastName,
     Date,
     Amount,
+    Purpose,
     Status,
   };
 }
 
 const rows = [
-  createData(
+  claimData(
     "2023",
     "1016",
     "Travel",
@@ -64,6 +66,7 @@ function ViewClaim() {
                 <TableCell>LastName</TableCell>
                 <TableCell>Date</TableCell>
                 <TableCell>Amount</TableCell>
+                <TableCell>Purpose</TableCell>
                 <TableCell>Status</TableCell>
                 <TableCell>-</TableCell>
                 <TableCell>-</TableCell>
@@ -82,6 +85,7 @@ function ViewClaim() {
                   <TableCell align="right">{row.LastName}</TableCell>
                   <TableCell align="right">{row.Date}</TableCell>
                   <TableCell align="right">{row.Amount}</TableCell>
+                  <TableCell align="right">{row.Purpose}</TableCell>
                   <TableCell align="right">{row.Status}</TableCell>
                   <TableCell align="right">
                     <Button variant="outlined" startIcon={<DeleteIcon />}>
