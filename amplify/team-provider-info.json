@@ -13,7 +13,8 @@
     },
     "categories": {
       "auth": {
-        "dbsapp04965dc1": {}
+        "dbsapp04965dc1": {},
+        "dbsapp": {}
       }
     }
   }
