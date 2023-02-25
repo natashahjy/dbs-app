@@ -1,6 +1,4 @@
 import React from "react";
-import { Authenticator } from "@aws-amplify/ui-react";
-import '@aws-amplify/ui-react/styles.css';
 
 import { Link } from "react-router-dom";
 import BarCard from "./charts/cards/subCard/BarCard";
@@ -18,8 +16,6 @@ const Dashboard = () => {
   const colorBar = ['#a98bfd','#a98bfd','#a98bfd','#a98bfd','#a98bfd'];
 
   return (
-    <Authenticator>
-      {({ signOut }) => (
         <div>
           <meta charSet="UTF-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -36,7 +32,6 @@ const Dashboard = () => {
             className="container"
             style={{ marginTop: "10rem", marginLeft: "300px" }}
           >
-            <button onClick={signOut}>Sign Out</button>
             <div className="row">
               <div
                 className="col-3 border border-dark rounded"
@@ -97,8 +92,6 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-      )}
-    </Authenticator>
   );
 };
 
