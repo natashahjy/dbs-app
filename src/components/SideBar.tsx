@@ -13,12 +13,23 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import Dashboard from './Dashboard';
+import ViewClaim from './ViewClaim';
 
 const drawerWidth = 240;
 //Pass in the page as props;
 export default function SideBarNav({page}) {
 
-
+  let linkarr = ['Home','View Claim', 'Create Claim', 'Edit Claim']
+  
+  const linkhelper = (nav) => {
+    console.log(nav)
+    if(nav =="Home"){return "/"}
+    if(nav =="View Claim"){return "/viewclaim"}
+    if(nav =="Create Claim"){return "/"}
+    if(nav =="Edit Claim"){return "/"}
+    else return "/"
+  }
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -36,13 +47,14 @@ export default function SideBarNav({page}) {
       >
         <Divider />
         <List>
-          {['Home', 'View Claims', 'Create Claim', 'Edit Claim'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton href='/'>
+
+          {linkarr.map((key, index) => (
+            <ListItem key={key} disablePadding>
+              <ListItemButton href = {linkhelper(key)}>
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                 </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={key} />
               </ListItemButton>
             </ListItem>
           ))}
