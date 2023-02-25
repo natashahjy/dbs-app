@@ -9,14 +9,26 @@ const ViewClaim = () => {
       <div>
         <table>
           <tr>
-            <th>Name</th>
-            <th>Type</th>
+            <th>ClaimID</th>
+            <th>InsuranceID</th>
+            <th>InsuranceType</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Purpose</th>
             <th>Status</th>
           </tr>
           <tr>
-            <td>Ins1</td>
-            <td>Ins2</td>
-            <td>Ins3</td>
+            <td>2023</td>
+            <td>1016</td>
+            <td>Travel</td>
+            <td>Irene</td>
+            <td>Lim</td>
+            <td>2023-02-11</td>
+            <td>100.00</td>
+            <td>Overseas Injury</td>
+            <td>Approved</td>
           </tr>
         </table>
       </div>
