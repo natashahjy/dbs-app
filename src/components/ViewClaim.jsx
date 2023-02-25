@@ -52,19 +52,16 @@ function ViewClaim() {
   const [claim, setClaim] = useState([]);
 
   const fetchClaimData = async () => {
-    const response = await fetch("/claims", {
-      method: "POST",
+
+    const requestOptions = {
+      method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ EmployeeID: 58001002 }),
-    });
-
-    const json = await response.json();
-
-    if (!response.ok) {
-      localStorage.setItem("claim", JSON.stringify(json));
-    } else {
-      console.log(json);
     }
+    
+   fetch('https://localhost:3001/view', requestOptions)
+   .then(response => response.json())
+   .then(data => this.setState({ ClaimID: data.id }));
   };
 
   useEffect(async () => {
