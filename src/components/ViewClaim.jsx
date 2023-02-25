@@ -1,6 +1,6 @@
 import React from "react";
 
-const ViewClaim = () => {
+function ViewClaim() {
   return (
     <div>
       <div>
