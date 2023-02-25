@@ -5,7 +5,12 @@ import { Routes, Route } from "react-router-dom";
 
 import Dashboard from "./components/Dashboard";
 import ViewClaim from "./components/ViewClaim";
+
 import SideBarNav from "./components/SideBar.tsx";
+
+
+import CreateClaimForm from "./eman/CreateClaimForm"
+
 //Styles
 
 import "./styles/ViewClaim.css";

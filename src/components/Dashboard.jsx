@@ -8,7 +8,7 @@ const Dashboard = () => {
       <meta charSet="UTF-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Document</title>
+      <title>Home</title>
       <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
         rel="stylesheet"
@@ -38,13 +38,13 @@ const Dashboard = () => {
           <div className="col-3 border border-dark ms-5 rounded">
             <div className="row">
               <h3 className="text-center">Create Claim</h3>
-              <a href="#">
-                <img
+              <Link to="createclaim">
+              <img
                   style={{ width: "200px" }}
                   className="image-fluid rounded-pill"
                   src="https://img.freepik.com/premium-vector/tax-payment-paper-mail-folder-cartoon-illustration-flat-vector-isolated-object_374761-118.jpg?w=2000"
                 />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
