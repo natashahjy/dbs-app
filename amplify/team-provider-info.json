@@ -10,6 +10,11 @@
       "StackName": "amplify-dbsapp-dev-123353",
       "StackId": "arn:aws:cloudformation:ap-southeast-1:140481910148:stack/amplify-dbsapp-dev-123353/9c82d3d0-b4c5-11ed-8acd-06241a9738c2",
       "AmplifyAppId": "d2ncxiheomh48c"
+    },
+    "categories": {
+      "auth": {
+        "dbsapp04965dc1": {}
+      }
     }
   }
 }
