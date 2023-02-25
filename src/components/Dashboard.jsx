@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import BarCard from "./charts/cards/subCard/BarCard";
 const Dashboard = () => {
   const inputBar = {
-    title: 'Bar card example',
+    title: 'Individual Claims',
     type: 'bar',
-    xdata: ['team ABC', 'team B', 'team C', 'team D'],
-    ydata: [55, 23, 96, 30],
-    xlabel: 'team',
-    ylabel: 'score',
+    xdata: ['Claim 1', 'Claim 2', 'Claim 3', 'Claim 4'],
+    ydata: ['55', '23', '96', '30'],
+    xlabel: 'Claim',
+    ylabel: 'Amount ($)',
     captions: [],
     captionValues: []
   }
@@ -33,21 +33,7 @@ const Dashboard = () => {
             style={{ marginTop: "10rem", marginLeft: "300px" }}
           >
             <div className="row">
-              <div
-                className="col-3 border border-dark rounded"
-                style={{ height: "300px", backgroundColor: "#fdfefe !important" }}
-              >
-                <div className="row">
-                  <h3 className="text-center">View Existing Claims</h3>
-                  <a href="#">
-                    <img
-                      style={{ width: "200px" }}
-                      className="image-fluid rounded-pill"
-                      src="https://img.freepik.com/premium-vector/tax-payment-paper-mail-folder-cartoon-illustration-flat-vector-isolated-object_374761-118.jpg?w=2000"
-                    />
-                  </a>
-                </div>
-              </div>
+              
               <div className="col-3 border border-dark ms-5 rounded">
                 <div className="row">
                   <h3 className="text-center">Create Claim</h3>
@@ -62,21 +48,7 @@ const Dashboard = () => {
               </div>
             </div>
             <div className="row my-5">
-              <div
-                className="col-3 border border-dark rounded"
-                style={{ height: "300px" }}
-              >
-                <div className="row">
-                  <h3 className="text-center">Claims Academy</h3>
-                  <a href="#">
-                    <img
-                      style={{ width: "200px" }}
-                      className="image-fluid rounded-pill"
-                      src="https://img.freepik.com/premium-vector/tax-payment-paper-mail-folder-cartoon-illustration-flat-vector-isolated-object_374761-118.jpg?w=2000"
-                    />
-                  </a>
-                </div>
-              </div>
+              
               <div className="col-3 border border-dark ms-5 rounded">
                 <div className="row">
                   <h3 className="text-center">View Claims</h3>
