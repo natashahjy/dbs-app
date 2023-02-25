@@ -1,5 +1,13 @@
 import React, { useState, useEffect }from "react";
 import './styles/CreateClaimForm.css';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import BasicSelect from "./SelectClaimDropdown";
+import Button from '@mui/material/Button';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 
 const CreateClaimForm = () => {
     const [Amount, setAmount] = useState('');
@@ -10,9 +18,72 @@ const CreateClaimForm = () => {
     const [ExpenseDate, setExpenseDate] = useState('');
     const [FollowUp, setFollowUp] = useState('');
     const [OldClaim, setOldClaim] = useState('');
-    const handleSubmit = (e) => {
+    
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        //fomat data
+        let data = {
+    "FirstName": FirstName, 
+    "LastName": LastName, 
+    "ReceiptNumber":ReceiptNumber,
+    "Date":ExpenseDate, 
+    "Amount": Amount, 
+    "Purpose":Purpose, 
+    "PreviousClaimId": OldClaim,
+        }
+       
+        let res = await fetch(
+            '/createClaim',{
+                method:'POST',
+                mode: 'cors',
+                body: JSON.stringify(data)
+            }
+        );
+        if(res.status){
+            <Alert severity="success">Successfully created!</Alert>
+            console.log("submitted")
+        }
+        else{
+            <Alert severity="error">Error submitting form!</Alert>
+            console.log("error")
+
+        }
     };
+    const onChange = (e) => {
+        setOldClaim(e.target.value)
+    };
+
+    useEffect(() => {
+        if(FollowUp == "No"){
+            setOldClaim("")
+        }
+        console.log(OldClaim)
+    }, [FollowUp])
+    
+    let claims = [
+    {"ClaimID":1234, 
+    "InsuranceID":"1016", 
+    "InsuranceType":"Travel", 
+    "FirstName": "Irene", 
+    "LastName": "Lim", 
+    "Date":"2023-02-11", 
+    "Amount": 100.0, 
+    "Purpose":"Overseas Injury", 
+    "Status":"Approved", 
+    },
+    {"ClaimID":4321, 
+    "InsuranceID":"1016", 
+    "InsuranceType":"Travel", 
+    "FirstName": "Irene", 
+    "LastName": "Lim", 
+    "Date":"2023-02-11", 
+    "Amount": 100.0, 
+    "Purpose":"Overseas Injury", 
+    "Status":"Approved", 
+    },
+]
+    
+
     return (
         <div className="FormContainer">
         <form className='CreateClaimForm' id='CreateClaimForm' onSubmit={ handleSubmit }>
@@ -40,8 +111,17 @@ const CreateClaimForm = () => {
                 <option value="No">No</option>
             </select>
 
-            {FollowUp != 'No'? (<input type='number' name='OldClaimID' id='OldClaimID' onChange={(e) => setOldClaim(e.target.value)} placeholder='OldClaimID'>
-            </input>): <div></div>}
+            {FollowUp != 'No'? (
+                <Select label="Select your claim" value={OldClaim} onChange={onChange}>
+                    {claims.map(claim =>{
+                        return(
+                            <MenuItem value={claim.ClaimID}>ClaimId: {claim.ClaimID} | InsuranceType:{claim.InsuranceType} | Amount:{claim.Amount}</MenuItem>
+                        )
+                    })}
+                </Select>
+            )
+            // <input type='number' name='OldClaimID' id='OldClaimID' onChange={(e) => setOldClaim(e.target.value)} placeholder='OldClaimID'></input>)
+            : <div></div>}
 
             <button className='SubmitButton' type='submit'>Submit</button>
 
