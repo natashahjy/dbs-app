@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 const Dashboard = () => {
   return (
     <div>
@@ -64,14 +66,14 @@ const Dashboard = () => {
           </div>
           <div className="col-3 border border-dark ms-5 rounded">
             <div className="row">
-              <h3 className="text-center">View Claims History</h3>
-              <a href="#">
+              <h3 className="text-center">View Claims</h3>
+              <Link to="viewclaim">
                 <img
                   style={{ width: "200px" }}
                   className="image-fluid rounded-pill"
                   src="https://img.freepik.com/premium-vector/tax-payment-paper-mail-folder-cartoon-illustration-flat-vector-isolated-object_374761-118.jpg?w=2000"
                 />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
