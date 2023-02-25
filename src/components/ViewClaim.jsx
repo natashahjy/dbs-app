@@ -18,6 +18,7 @@ function claimData(
   LastName,
   Date,
   Amount,
+  Purpose,
   Status
 ) {
   return {
@@ -28,6 +29,7 @@ function claimData(
     LastName,
     Date,
     Amount,
+    Purpose,
     Status,
   };
 }
@@ -64,6 +66,7 @@ function ViewClaim() {
                 <TableCell>LastName</TableCell>
                 <TableCell>Date</TableCell>
                 <TableCell>Amount</TableCell>
+                <TableCell>Purpose</TableCell>
                 <TableCell>Status</TableCell>
                 <TableCell>-</TableCell>
                 <TableCell>-</TableCell>
@@ -82,6 +85,7 @@ function ViewClaim() {
                   <TableCell align="right">{row.LastName}</TableCell>
                   <TableCell align="right">{row.Date}</TableCell>
                   <TableCell align="right">{row.Amount}</TableCell>
+                  <TableCell align="right">{row.Purpose}</TableCell>
                   <TableCell align="right">{row.Status}</TableCell>
                   <TableCell align="right">
                     <Button variant="outlined" startIcon={<DeleteIcon />}>
