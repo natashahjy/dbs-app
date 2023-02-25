@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
-function createData(
+function claimData(
   ClaimID,
   InsuranceID,
   InsuranceType,
@@ -33,7 +33,7 @@ function createData(
 }
 
 const rows = [
-  createData(
+  claimData(
     "2023",
     "1016",
     "Travel",
