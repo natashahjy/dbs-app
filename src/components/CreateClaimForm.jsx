@@ -1,5 +1,5 @@
 import React, { useState, useEffect }from "react";
-import './CreateClaimForm.css';
+import './styles/CreateClaimForm.css';
 
 const CreateClaimForm = () => {
     const [Amount, setAmount] = useState('');

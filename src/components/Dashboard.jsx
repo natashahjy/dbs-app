@@ -1,8 +1,20 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-
+import BarCard from "./charts/cards/subCard/BarCard";
 const Dashboard = () => {
+  const inputBar = {
+    title: 'Bar card example',
+    type: 'bar',
+    xdata: ['team ABC', 'team B', 'team C', 'team D'],
+    ydata: [55, 23, 96, 30],
+    xlabel: 'team',
+    ylabel: 'score',
+    captions: [],
+    captionValues: []
+  }
+  const colorBar = ['#a98bfd','#a98bfd','#a98bfd','#a98bfd','#a98bfd'];
+
   return (
     <div>
       <meta charSet="UTF-8" />
@@ -15,6 +27,7 @@ const Dashboard = () => {
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
         crossOrigin="anonymous"
       />
+      <BarCard inputObject={inputBar} colorData={colorBar}></BarCard>
       <div
         className="container"
         style={{ marginTop: "10rem", marginLeft: "300px" }}
