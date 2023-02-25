@@ -1,4 +1,3 @@
-
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "./globalStates/userState";
 import { Routes, Route } from "react-router-dom";
@@ -8,8 +7,7 @@ import ViewClaim from "./components/ViewClaim";
 
 import SideBarNav from "./components/SideBar.tsx";
 
-
-import CreateClaimForm from "./components/CreateClaimForm"
+import CreateClaimForm from "./components/CreateClaimForm";
 
 //Styles
 
@@ -27,10 +25,22 @@ const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<SideBarNav page={<Dashboard/>}></SideBarNav>}/>
-        <Route path="viewclaim" element={<SideBarNav page={<ViewClaim/>}></SideBarNav>} />
-        <Route path="CreateClaimForm" element={<SideBarNav page={<CreateClaimForm/>}></SideBarNav>} />
-        <Route path="EditClaimForm" element={<SideBarNav page={<CreateClaimForm/>}></SideBarNav>} />
+        <Route
+          path="/"
+          element={<SideBarNav page={<Dashboard />}></SideBarNav>}
+        />
+        <Route
+          path="viewclaim"
+          element={<SideBarNav page={<ViewClaim />}></SideBarNav>}
+        />
+        <Route
+          path="CreateClaimForm"
+          element={<SideBarNav page={<CreateClaimForm />}></SideBarNav>}
+        />
+        <Route
+          path="EditClaimForm"
+          element={<SideBarNav page={<CreateClaimForm />}></SideBarNav>}
+        />
       </Routes>
     </div>
   );
